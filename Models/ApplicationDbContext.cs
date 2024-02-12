@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using EmailSender.Models.Domains;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace EmailSender.Models
@@ -10,6 +11,9 @@ namespace EmailSender.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<EmailMessage> EmailMessages { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
 
         public static ApplicationDbContext Create()
         {
